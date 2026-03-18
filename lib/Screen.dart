@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:flutter_tasks/Question_Item.dart';
+import 'package:flutter_tasks/Question_Item_Widget.dart';
 
 class QuizScreen extends StatelessWidget {
   const QuizScreen({super.key});
