@@ -2,12 +2,12 @@
 
 import 'package:flutter/material.dart';
 
-class QuestionItem extends StatelessWidget {
+class QuestionItemWidget extends StatelessWidget {
   final String category;
   final String questionText;
   final String imagePath;
 
-  const QuestionItem({
+  const QuestionItemWidget({
     super.key,
     required,
     required this.category,

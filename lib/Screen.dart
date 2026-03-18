@@ -43,52 +43,52 @@ class QuizScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              QuestionItem(
+              QuestionItemWidget(
                 category: 'Sport',
                 questionText: "Who is the best coach ?",
                 imagePath: 'assets/sport.jpeg',
               ),
-              QuestionItem(
+              QuestionItemWidget(
                 category: 'Sport',
                 questionText: "Who is the best keeper ?",
                 imagePath: 'assets/sport.jpeg',
               ),
-              QuestionItem(
+              QuestionItemWidget(
                 category: 'Sport',
                 questionText: "Who is the best dribbler ?",
                 imagePath: 'assets/sport.jpeg',
               ),
-              QuestionItem(
+              QuestionItemWidget(
                 category: 'Sport',
                 questionText: "Who is the best striker ?",
                 imagePath: 'assets/sport.jpeg',
               ),
-              QuestionItem(
+              QuestionItemWidget(
                 category: 'Sport',
                 questionText: "Who is the best defender ?",
                 imagePath: 'assets/sport.jpeg',
               ),
-              QuestionItem(
+              QuestionItemWidget(
                 category: 'Music',
                 questionText: "Who sang Living Water ?",
                 imagePath: 'assets/music.jpeg',
               ),
-              QuestionItem(
+              QuestionItemWidget(
                 category: 'Music',
                 questionText: "Who sang Delay ?",
                 imagePath: 'assets/music.jpeg',
               ),
-              QuestionItem(
+              QuestionItemWidget(
                 category: 'Music',
                 questionText: "Who sang you reign forever ?",
                 imagePath: 'assets/music.jpeg',
               ),
-              QuestionItem(
+              QuestionItemWidget(
                 category: 'Music',
                 questionText: "Who sang earthen vessel ?",
                 imagePath: 'assets/music.jpeg',
               ),
-              QuestionItem(
+              QuestionItemWidget(
                 category: 'Music',
                 questionText: "Who sang labourCreed ?",
                 imagePath: 'assets/music.jpeg',
