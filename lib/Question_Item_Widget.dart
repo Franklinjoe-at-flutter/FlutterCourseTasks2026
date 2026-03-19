@@ -1,5 +1,3 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
 
 class QuestionItemWidget extends StatelessWidget {
@@ -18,7 +16,6 @@ class QuestionItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SizedBox(height: 40),
         Row(
@@ -35,3 +32,56 @@ class QuestionItemWidget extends StatelessWidget {
     );
   }
 }
+
+List<Widget> questionItemWidgets = [
+  QuestionItemWidget(
+    category: 'Sport',
+    questionText: "Who is the best coach ?",
+    imagePath: 'assets/sport.jpeg',
+  ),
+  QuestionItemWidget(
+    category: 'Sport',
+    questionText: "Who is the best keeper ?",
+    imagePath: 'assets/sport.jpeg',
+  ),
+  QuestionItemWidget(
+    category: 'Sport',
+    questionText: "Who is the best dribbler ?",
+    imagePath: 'assets/sport.jpeg',
+  ),
+  QuestionItemWidget(
+    category: 'Sport',
+    questionText: "Who is the best striker ?",
+    imagePath: 'assets/sport.jpeg',
+  ),
+  QuestionItemWidget(
+    category: 'Sport',
+    questionText: "Who is the best defender ?",
+    imagePath: 'assets/sport.jpeg',
+  ),
+  QuestionItemWidget(
+    category: 'Music',
+    questionText: "Who sang Living Water ?",
+    imagePath: 'assets/music.jpeg',
+  ),
+  QuestionItemWidget(
+    category: 'Music',
+    questionText: "Who sang Delay ?",
+    imagePath: 'assets/music.jpeg',
+  ),
+  QuestionItemWidget(
+    category: 'Music',
+    questionText: "Who sang you reign forever ?",
+    imagePath: 'assets/music.jpeg',
+  ),
+  QuestionItemWidget(
+    category: 'Music',
+    questionText: "Who sang earthen vessel ?",
+    imagePath: 'assets/music.jpeg',
+  ),
+  QuestionItemWidget(
+    category: 'Music',
+    questionText: "Who sang labourCreed ?",
+    imagePath: 'assets/music.jpeg',
+  ),
+];

@@ -1,10 +1,8 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
-import 'package:flutter_tasks/Question_Item_Widget.dart';
+import 'package:flutter_tasks/question_item_widget.dart';
 
-class QuizScreen extends StatelessWidget {
-  const QuizScreen({super.key});
+class Screen extends StatelessWidget {
+  const Screen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,64 +36,18 @@ class QuizScreen extends StatelessWidget {
           );
         },
       ),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              QuestionItemWidget(
-                category: 'Sport',
-                questionText: "Who is the best coach ?",
-                imagePath: 'assets/sport.jpeg',
-              ),
-              QuestionItemWidget(
-                category: 'Sport',
-                questionText: "Who is the best keeper ?",
-                imagePath: 'assets/sport.jpeg',
-              ),
-              QuestionItemWidget(
-                category: 'Sport',
-                questionText: "Who is the best dribbler ?",
-                imagePath: 'assets/sport.jpeg',
-              ),
-              QuestionItemWidget(
-                category: 'Sport',
-                questionText: "Who is the best striker ?",
-                imagePath: 'assets/sport.jpeg',
-              ),
-              QuestionItemWidget(
-                category: 'Sport',
-                questionText: "Who is the best defender ?",
-                imagePath: 'assets/sport.jpeg',
-              ),
-              QuestionItemWidget(
-                category: 'Music',
-                questionText: "Who sang Living Water ?",
-                imagePath: 'assets/music.jpeg',
-              ),
-              QuestionItemWidget(
-                category: 'Music',
-                questionText: "Who sang Delay ?",
-                imagePath: 'assets/music.jpeg',
-              ),
-              QuestionItemWidget(
-                category: 'Music',
-                questionText: "Who sang you reign forever ?",
-                imagePath: 'assets/music.jpeg',
-              ),
-              QuestionItemWidget(
-                category: 'Music',
-                questionText: "Who sang earthen vessel ?",
-                imagePath: 'assets/music.jpeg',
-              ),
-              QuestionItemWidget(
-                category: 'Music',
-                questionText: "Who sang labourCreed ?",
-                imagePath: 'assets/music.jpeg',
-              ),
-            ],
-          ),
-        ),
+      body: Builder(
+        builder: (context) {
+          Size screenSize = MediaQuery.of(context).size;
+          bool isWide = screenSize.width > 600;
+
+          return SingleChildScrollView(
+            scrollDirection: isWide ? Axis.vertical : Axis.horizontal,
+            child: isWide
+                ? Column(children: questionItemWidgets)
+                : Row(children: questionItemWidgets),
+          );
+        },
       ),
     );
   }
