@@ -15,20 +15,25 @@ class QuestionItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(height: 40),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(height: 50, width: 50, child: Image.asset(imagePath)),
-            Padding(padding: const EdgeInsets.all(8.0), child: Text(category)),
-          ],
-        ),
+    return Padding(
+      padding: const EdgeInsets.all(14.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(height: 50, width: 50, child: Image.asset(imagePath)),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(category),
+              ),
+            ],
+          ),
 
-        Text(questionText),
-        SizedBox(height: 20),
-      ],
+          Text(questionText),
+        ],
+      ),
     );
   }
 }
@@ -39,46 +44,55 @@ List<Widget> questionItemWidgets = [
     questionText: "Who is the best coach ?",
     imagePath: 'assets/sport.jpeg',
   ),
+
   QuestionItemWidget(
     category: 'Sport',
     questionText: "Who is the best keeper ?",
     imagePath: 'assets/sport.jpeg',
   ),
+
   QuestionItemWidget(
     category: 'Sport',
     questionText: "Who is the best dribbler ?",
     imagePath: 'assets/sport.jpeg',
   ),
+
   QuestionItemWidget(
     category: 'Sport',
     questionText: "Who is the best striker ?",
     imagePath: 'assets/sport.jpeg',
   ),
+
   QuestionItemWidget(
     category: 'Sport',
     questionText: "Who is the best defender ?",
     imagePath: 'assets/sport.jpeg',
   ),
+
   QuestionItemWidget(
     category: 'Music',
     questionText: "Who sang Living Water ?",
     imagePath: 'assets/music.jpeg',
   ),
+
   QuestionItemWidget(
     category: 'Music',
     questionText: "Who sang Delay ?",
     imagePath: 'assets/music.jpeg',
   ),
+
   QuestionItemWidget(
     category: 'Music',
     questionText: "Who sang you reign forever ?",
     imagePath: 'assets/music.jpeg',
   ),
+
   QuestionItemWidget(
     category: 'Music',
     questionText: "Who sang earthen vessel ?",
     imagePath: 'assets/music.jpeg',
   ),
+
   QuestionItemWidget(
     category: 'Music',
     questionText: "Who sang labourCreed ?",
