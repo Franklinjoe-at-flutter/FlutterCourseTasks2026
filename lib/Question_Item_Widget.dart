@@ -1,6 +1,8 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
-class QuestionItemWidget extends StatelessWidget {
+class QuestionItemWidget extends StatefulWidget {
   final String category;
   final String questionText;
   final String imagePath;
@@ -14,6 +16,11 @@ class QuestionItemWidget extends StatelessWidget {
   });
 
   @override
+  State<QuestionItemWidget> createState() => _QuestionItemWidgetState();
+}
+
+class _QuestionItemWidgetState extends State<QuestionItemWidget> {
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(14.0),
@@ -23,15 +30,15 @@ class QuestionItemWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 50, width: 50, child: Image.asset(imagePath)),
+              SizedBox(height: 50, width: 50, child: Image.asset(widget.imagePath)),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(category),
+                child: Text(widget.category),
               ),
             ],
           ),
 
-          Text(questionText),
+          Text(widget.questionText),
         ],
       ),
     );
