@@ -32,7 +32,7 @@ class _ScreenState extends State<Screen> {
                   QuestionItemWidget(
                     category: "Art",
                     questionText: "whats your favourite design tool ?",
-                    imagePath: "assets/sport.jpeg",
+                    imagePath: "assets/paint.jpeg",
                   ),
                 );
               });
