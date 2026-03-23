@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter_tasks/screen.dart';
+import 'package:flutter_tasks/Screens/screen.dart';
 
 void main() {
   runApp(QuizApp());

@@ -1,7 +1,8 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:flutter_tasks/question_item_widget.dart';
+import 'package:flutter_tasks/Models/question_model.dart';
+import 'package:flutter_tasks/Widgets/list_view_widget.dart';
 
 class Screen extends StatefulWidget {
   const Screen({super.key});
@@ -28,25 +29,14 @@ class _ScreenState extends State<Screen> {
             backgroundColor: Colors.blue,
             onPressed: () {
               setState(() {
-                questionItemWidgets.add(
-                  QuestionItemWidget(
+                questionItems.add(
+                  QuestionModel(
                     category: "Art",
                     questionText: "whats your favourite design tool ?",
                     imagePath: "assets/paint.jpeg",
                   ),
                 );
               });
-              /*ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  backgroundColor: Colors.black54,
-                  behavior: SnackBarBehavior.floating,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  content: Text("Clicked!"),
-                  duration: Duration(seconds: 2),
-                ),
-              );*/
             },
             child: Icon(Icons.add, color: Colors.white),
           );
@@ -54,15 +44,7 @@ class _ScreenState extends State<Screen> {
       ),
       body: Builder(
         builder: (context) {
-          Size screenSize = MediaQuery.of(context).size;
-          bool isWide = screenSize.width > 600;
-
-          return SingleChildScrollView(
-            scrollDirection: isWide ? Axis.vertical : Axis.horizontal,
-            child: isWide
-                ? Column(children: questionItemWidgets)
-                : Row(children: questionItemWidgets),
-          );
+          return ListViewWidget();
         },
       ),
     );
