@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:flutter_tasks/Entity/question_model.dart';
+import 'package:flutter_tasks/Entity/question_entity.dart';
 import 'package:flutter_tasks/Screens/detail_screen.dart';
 
 class QuestionWidget extends StatefulWidget {
