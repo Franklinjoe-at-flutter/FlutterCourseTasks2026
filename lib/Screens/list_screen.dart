@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_tasks/Entity/question_entity.dart';
-import 'package:flutter_tasks/Widgets/question_list_tiles.dart';
 
 class ListScreen extends StatefulWidget {
   final List<QuestionEntity> questions;
@@ -19,12 +18,27 @@ class _ListScreenState extends State<ListScreen> {
       appBar: AppBar(
         backgroundColor: Colors.blue,
         title: const Text(
-          "QuizApp",
+          "Question List",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
         ),
       ),
 
-      body: QuestionListTiles(questions: widget.questions),
+      body: ListView.separated(
+        itemBuilder: (context, index) {
+          final question = widget.questions[index];
+          return ListTile(
+            leading: index <= 4
+                ? Icon(Icons.sports_baseball_rounded)
+                : Icon(Icons.music_note),
+            title: Text(question.questionText),
+            subtitle: Text(question.category),
+          );
+        },
+        separatorBuilder: (context, index) {
+          return const SizedBox(height: 10);
+        },
+        itemCount: widget.questions.length,
+      ),
     );
   }
 }

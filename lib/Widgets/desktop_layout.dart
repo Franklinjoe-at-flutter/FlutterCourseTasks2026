@@ -16,13 +16,6 @@ class _DesktopLayoutState extends State<DesktopLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: const Text(
-          "Add New Question",
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
       body: Row(
         children: [
           NavigationRail(
@@ -32,7 +25,7 @@ class _DesktopLayoutState extends State<DesktopLayout> {
                 label: Text("List Screen"),
               ),
               NavigationRailDestination(
-                icon: Icon(Icons.list),
+                icon: Icon(Icons.add),
                 label: Text("Form Screen"),
               ),
             ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tasks/Entity/question_entity.dart';
-import 'package:flutter_tasks/Widgets/question_list_tiles.dart';
+import 'package:flutter_tasks/Widgets/responsive_layout.dart';
 
 class FormScreen extends StatefulWidget {
   final List<QuestionEntity> questions;
@@ -15,83 +15,128 @@ class _FormScreenState extends State<FormScreen> {
   TextEditingController categoryController = TextEditingController();
   String newQuestion = "";
   String newcategory = "";
-  String errorText = "";
+  String? errorText;
+
+  @override
+  void dispose() {
+    questionController.dispose();
+    categoryController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        title:const Text("Add New Question", style: TextStyle(color: Colors.white)),
+        title: const Text(
+          "Add New Question",
+          style: TextStyle(color: Colors.white),
+        ),
       ),
-      body: Column(
-        children: [
-          TextField(
-            controller: questionController,
-            decoration: InputDecoration(
-              errorText: errorText,
-              labelText: "question",
-              hintText: "enter new question",
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.blue),
-                borderRadius: BorderRadius.circular(5),
-              ),
-            ),
-          ),
-          const SizedBox(height: 15),
-          TextField(
-            controller: categoryController,
-            decoration: InputDecoration(
-              errorText: errorText,
-              labelText: "category",
-              hintText: "enter category",
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.blue),
-                borderRadius: BorderRadius.circular(5),
-              ),
-            ),
-          ),
-          const SizedBox(height: 15),
-          TextButton(
-            onPressed: () {
-              if (questionController.text.isNotEmpty &&
-                  categoryController.text.isNotEmpty) {
-                newQuestion = questionController.text;
-                newcategory = categoryController.text;
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            children: [
+              TextField(
+                controller: questionController,
+                decoration: InputDecoration(
+                  labelStyle: TextStyle(color: Colors.black),
+                  hintStyle: TextStyle(color: Colors.grey),
+                  errorText: errorText,
+                  labelText: "question",
+                  hintText: "enter new question",
 
-                QuestionEntity addedQuestion = QuestionEntity(
-                  category: newcategory,
-                  questionText: newQuestion,
-                );
-
-                widget.questions.add(addedQuestion);
-
-                questionController.clear();
-                categoryController.clear();
-
-                questionController.dispose();
-                categoryController.dispose();
-
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) =>
-                        QuestionListTiles(questions: widget.questions),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(color: Colors.blue, width: 0.5),
                   ),
-                );
-              } else {
-                errorText = "Please fill in all fields";
-              }
-            },
-            style: TextButton.styleFrom(
-              backgroundColor: Colors.blue,
-              minimumSize: Size(double.infinity, 48),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5),
+
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(color: Colors.blue, width: 0.5),
+                  ),
+
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blue, width: 0.5),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
               ),
-            ),
-            child: const Text("Add Question"),
+              const SizedBox(height: 15),
+              TextField(
+                controller: categoryController,
+                decoration: InputDecoration(
+                  labelStyle: TextStyle(color: Colors.black),
+                  hintStyle: TextStyle(color: Colors.grey),
+                  errorText: errorText,
+                  labelText: "category",
+                  hintText: "enter category",
+
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(color: Colors.blue, width: 0.5),
+                  ),
+
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(color: Colors.blue, width: 0.5),
+                  ),
+
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blue, width: 0.5),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15),
+              TextButton(
+                onPressed: () {
+                  if (questionController.text.isNotEmpty &&
+                      categoryController.text.isNotEmpty) {
+                    errorText = null;
+                    newQuestion = questionController.text;
+                    newcategory = categoryController.text;
+
+                    QuestionEntity addedQuestion = QuestionEntity(
+                      category: newcategory,
+                      questionText: newQuestion,
+                    );
+
+                    widget.questions.add(addedQuestion);
+
+                    questionController.clear();
+                    categoryController.clear();
+
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) =>
+                            ResponsiveLayout(questions: widget.questions),
+                      ),
+                    );
+                  } else {
+                    setState(() {
+                      errorText = "Please fill in all fields";
+                    });
+                  }
+                },
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  minimumSize: Size(double.infinity, 48),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                ),
+                child: const Text(
+                  "Add Question",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
