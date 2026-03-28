@@ -34,108 +34,107 @@ class _FormScreenState extends State<FormScreen> {
           style: TextStyle(color: Colors.white),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Column(
-            children: [
-              TextField(
-                controller: questionController,
-                decoration: InputDecoration(
-                  labelStyle: TextStyle(color: Colors.black),
-                  hintStyle: TextStyle(color: Colors.grey),
-                  errorText: errorText,
-                  labelText: "question",
-                  hintText: "enter new question",
+      body: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          children: [
+            TextField(
+              controller: questionController,
+              decoration: InputDecoration(
+                labelStyle: TextStyle(color: Colors.black),
+                hintStyle: TextStyle(color: Colors.grey),
+                errorText: errorText,
+                labelText: "question",
+                hintText: "enter new question",
 
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Colors.blue, width: 0.5),
-                  ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: Colors.blue, width: 0.5),
+                ),
 
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Colors.blue, width: 0.5),
-                  ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: Colors.blue, width: 0.5),
+                ),
 
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.blue, width: 0.5),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue, width: 0.5),
+                  borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              const SizedBox(height: 15),
-              TextField(
-                controller: categoryController,
-                decoration: InputDecoration(
-                  labelStyle: TextStyle(color: Colors.black),
-                  hintStyle: TextStyle(color: Colors.grey),
-                  errorText: errorText,
-                  labelText: "category",
-                  hintText: "enter category",
+            ),
+            const SizedBox(height: 15),
+            TextField(
+              controller: categoryController,
+              decoration: InputDecoration(
+                labelStyle: TextStyle(color: Colors.black),
+                hintStyle: TextStyle(color: Colors.grey),
+                errorText: errorText,
+                labelText: "category",
+                hintText: "enter category",
 
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Colors.blue, width: 0.5),
-                  ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: Colors.blue, width: 0.5),
+                ),
 
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Colors.blue, width: 0.5),
-                  ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: Colors.blue, width: 0.5),
+                ),
 
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.blue, width: 0.5),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue, width: 0.5),
+                  borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              const SizedBox(height: 15),
-              TextButton(
-                onPressed: () {
-                  if (questionController.text.isNotEmpty &&
-                      categoryController.text.isNotEmpty) {
-                    errorText = null;
-                    newQuestion = questionController.text;
-                    newcategory = categoryController.text;
+            ),
+            const SizedBox(height: 15),
+            TextButton(
+              onPressed: () {
+                if (questionController.text.isNotEmpty &&
+                    categoryController.text.isNotEmpty) {
+                  errorText = null;
+                  newQuestion = questionController.text;
+                  newcategory = categoryController.text;
 
-                    QuestionEntity addedQuestion = QuestionEntity(
-                      category: newcategory,
-                      questionText: newQuestion,
-                    );
+                  QuestionEntity addedQuestion = QuestionEntity(
+                    category: newcategory,
+                    questionText: newQuestion,
+                    icon: Icons.grade_rounded,
+                  );
 
-                    widget.questions.add(addedQuestion);
+                  widget.questions.add(addedQuestion);
 
-                    questionController.clear();
-                    categoryController.clear();
+                  questionController.clear();
+                  categoryController.clear();
 
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) =>
-                            ResponsiveLayout(questions: widget.questions),
-                      ),
-                    );
-                  } else {
-                    setState(() {
-                      errorText = "Please fill in all fields";
-                    });
-                  }
-                },
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  minimumSize: Size(double.infinity, 48),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                ),
-                child: const Text(
-                  "Add Question",
-                  style: TextStyle(color: Colors.white),
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) =>
+                          ResponsiveLayout(questions: widget.questions),
+                    ),
+                  );
+                } else {
+                  setState(() {
+                    errorText = "Please fill in all fields";
+                  });
+                }
+              },
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.blue,
+                minimumSize: Size(double.infinity, 48),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5),
                 ),
               ),
-            ],
-          ),
+              child: const Text(
+                "Add Question",
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ],
         ),
       ),
     );
