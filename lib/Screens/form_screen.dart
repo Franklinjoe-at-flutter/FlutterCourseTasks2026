@@ -26,6 +26,11 @@ class _FormScreenState extends State<FormScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final borderdecoration = OutlineInputBorder(
+      borderRadius: BorderRadius.circular(12),
+      borderSide: BorderSide(color: Colors.blue, width: 0.5),
+    );
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
@@ -47,20 +52,9 @@ class _FormScreenState extends State<FormScreen> {
                 labelText: "question",
                 hintText: "enter new question",
 
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Colors.blue, width: 0.5),
-                ),
-
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Colors.blue, width: 0.5),
-                ),
-
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue, width: 0.5),
-                  borderRadius: BorderRadius.circular(12),
-                ),
+                border: borderdecoration,
+                enabledBorder: borderdecoration,
+                focusedBorder: borderdecoration,
               ),
             ),
             const SizedBox(height: 15),
@@ -73,23 +67,14 @@ class _FormScreenState extends State<FormScreen> {
                 labelText: "category",
                 hintText: "enter category",
 
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Colors.blue, width: 0.5),
-                ),
-
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Colors.blue, width: 0.5),
-                ),
-
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue, width: 0.5),
-                  borderRadius: BorderRadius.circular(12),
-                ),
+                border: borderdecoration,
+                enabledBorder: borderdecoration,
+                focusedBorder: borderdecoration,
               ),
             ),
+
             const SizedBox(height: 15),
+
             TextButton(
               onPressed: () {
                 if (questionController.text.isNotEmpty &&

@@ -27,7 +27,7 @@ class _ListScreenState extends State<ListScreen> {
         itemBuilder: (context, index) {
           final question = widget.questions[index];
           return ListTile(
-            leading: Icon(question.icon,),
+            leading: Icon(question.icon),
             title: Text(question.questionText),
             subtitle: Text(question.category),
           );
