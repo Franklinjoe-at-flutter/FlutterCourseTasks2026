@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tasks/Entity/question_entity.dart';
-import 'package:flutter_tasks/Widgets/navbar.dart';
+import 'package:flutter_tasks/Widgets/responsive_layout.dart';
 
 void main() {
   runApp(QuizApp());
@@ -50,7 +50,7 @@ class QuizApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Navbar(questions: questions),
+      home: ResponsiveLayout(questions: questions),
     );
   }
 }
