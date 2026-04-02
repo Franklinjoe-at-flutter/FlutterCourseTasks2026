@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_tasks/Entity/question_entity.dart';
+import 'package:flutter_tasks/Screens/detail_screen.dart';
 
 class ListScreen extends StatefulWidget {
   final List<QuestionEntity> questions;
@@ -27,6 +28,15 @@ class _ListScreenState extends State<ListScreen> {
         itemBuilder: (context, index) {
           final question = widget.questions[index];
           return ListTile(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) =>
+                      DetailScreen(question: question,),
+                ),
+              );
+            },
             leading: Icon(question.icon),
             title: Text(question.questionText),
             subtitle: Text(question.category),

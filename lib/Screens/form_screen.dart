@@ -87,6 +87,9 @@ class _FormScreenState extends State<FormScreen> {
                     category: newcategory,
                     questionText: newQuestion,
                     icon: Icons.grade_rounded,
+                    hint1: 'Coming Soon',
+                    hint2: 'Coming Soon',
+                    solution: 'Coming Soon',
                   );
 
                   widget.questions.add(addedQuestion);
