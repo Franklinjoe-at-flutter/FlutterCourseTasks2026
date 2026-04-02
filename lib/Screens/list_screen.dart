@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tasks/Entity/question_entity.dart';
 import 'package:flutter_tasks/Screens/detail_screen.dart';
+import 'package:flutter_tasks/Services/detail_services.dart';
+import 'package:provider/provider.dart';
 
 class ListScreen extends StatefulWidget {
   final List<QuestionEntity> questions;
@@ -32,8 +34,10 @@ class _ListScreenState extends State<ListScreen> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (_) =>
-                      DetailScreen(question: question,),
+                  builder: (_) => ChangeNotifierProvider(
+                    create: (context) => DetailServices(),
+                    child: DetailScreen(question: question),
+                  ),
                 ),
               );
             },
